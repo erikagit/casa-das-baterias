@@ -1,0 +1,2938 @@
+/* ============================================================
+   CONFIGURAÇÕES GERAIS
+   ============================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: #F6F8F7;
+    color: #26312B;
+}
+
+
+/* ============================================================
+   APP
+   ============================================================ */
+
+#app {
+    min-height: 100vh;
+    display: flex;
+}
+
+
+/* ============================================================
+   MENU LATERAL
+   ============================================================ */
+
+.sidebar {
+    width: 240px;
+    min-width: 240px;
+
+    min-height: 100vh;
+
+    background: white;
+
+    border-right: 1px solid #E8ECEA;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 24px 14px;
+}
+
+
+/* ============================================================
+   LOGO
+   ============================================================ */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    padding: 4px 10px 28px;
+}
+
+.logo-icon {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 9px;
+
+    background: #E8F5ED;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 21px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+
+    line-height: 1.1;
+}
+
+.logo-text strong {
+    font-size: 15px;
+}
+
+.logo-text span {
+    color: #16803C;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+
+/* ============================================================
+   MENU
+   ============================================================ */
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-item {
+    width: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    border-radius: 8px;
+
+    padding: 11px 12px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    color: #66736C;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.menu-item:hover {
+    background: #F2F6F3;
+    color: #16803C;
+}
+
+.menu-item.active {
+    background: #E8F5ED;
+    color: #16803C;
+    font-weight: 600;
+}
+
+.menu-item span:first-child {
+    width: 20px;
+    text-align: center;
+    font-size: 17px;
+}
+
+
+/* ============================================================
+   MENU INFERIOR
+   ============================================================ */
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+
+/* ============================================================
+   CONTEÚDO
+   ============================================================ */
+
+.content {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 30px 34px;
+}
+
+
+/* ============================================================
+   TOPBAR
+   ============================================================ */
+
+.topbar {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 28px;
+
+    gap: 20px;
+}
+
+.topbar h1 {
+    margin: 0;
+
+    font-size: 24px;
+}
+
+.topbar p {
+    margin: 5px 0 0;
+
+    color: #78847E;
+
+    font-size: 13px;
+}
+
+.refresh-button {
+    border: 1px solid #DCE4DF;
+
+    background: white;
+
+    color: #37423C;
+
+    border-radius: 8px;
+
+    padding: 9px 14px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+.refresh-button:hover {
+    background: #F2F6F3;
+}
+
+
+/* ============================================================
+   WELCOME
+   ============================================================ */
+
+.welcome-card {
+    background: white;
+
+    border: 1px solid #E4E9E6;
+
+    border-radius: 11px;
+
+    padding: 22px;
+
+    margin-bottom: 20px;
+}
+
+.welcome-card h2 {
+    margin: 0;
+
+    font-size: 18px;
+}
+
+.welcome-card p {
+    margin: 7px 0 0;
+
+    color: #78847E;
+
+    font-size: 13px;
+}
+
+
+/* ============================================================
+   ESTATÍSTICAS
+   ============================================================ */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 14px;
+
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background: white;
+
+    border: 1px solid #E4E9E6;
+
+    border-radius: 10px;
+
+    padding: 18px;
+}
+
+.stat-label {
+    display: block;
+
+    color: #78847E;
+
+    font-size: 12px;
+
+    margin-bottom: 9px;
+}
+
+.stat-card strong {
+    font-size: 19px;
+}
+
+
+/* ============================================================
+   CARDS DE SEÇÃO
+   ============================================================ */
+
+.section-card {
+    background: white;
+
+    border: 1px solid #E4E9E6;
+
+    border-radius: 10px;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+}
+
+.section-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+}
+
+.section-header h2 {
+    margin: 0;
+
+    font-size: 16px;
+}
+
+.section-header p {
+    margin: 5px 0 0;
+
+    color: #78847E;
+
+    font-size: 12px;
+}
+
+
+/* ============================================================
+   GRÁFICO
+   ============================================================ */
+
+.chart {
+    min-height: 150px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #78847E;
+
+    font-size: 13px;
+}
+
+
+/* ============================================================
+   GRID INFERIOR
+   ============================================================ */
+
+.bottom-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+
+/* ============================================================
+   ESTOQUE DO DASHBOARD
+   ============================================================ */
+
+.stock-row {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #EEF1EF;
+}
+
+.stock-row:last-child {
+    border-bottom: none;
+}
+
+.stock-row div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.stock-row strong {
+    font-size: 14px;
+}
+
+.stock-row small {
+    color: #78847E;
+
+    font-size: 12px;
+}
+
+.stock-row > span {
+    color: #78847E;
+
+    font-size: 12px;
+}
+
+.empty-message {
+    color: #78847E;
+    font-size: 13px;
+}
+
+
+/* ============================================================
+   ============================================================
+   TELA DE BATERIAS
+   ============================================================
+   ============================================================ */
+
+.batteries-screen {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+/* ============================================================
+   CABEÇALHO DAS BATERIAS
+   ============================================================ */
+
+.batteries-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.batteries-header h2 {
+    margin: 0;
+
+    font-size: 20px;
+}
+
+.batteries-header p {
+    margin: 6px 0 0;
+
+    color: #78847E;
+
+    font-size: 13px;
+}
+
+
+/* ============================================================
+   BOTÃO PRINCIPAL
+   ============================================================ */
+
+.primary-button {
+    border: none;
+
+    background: #16803C;
+
+    color: white;
+
+    border-radius: 8px;
+
+    padding: 10px 15px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    transition: 0.2s;
+}
+
+.primary-button:hover {
+    background: #126C32;
+}
+
+
+/* ============================================================
+   FILTROS
+   ============================================================ */
+
+.batteries-filters {
+    display: flex;
+
+    gap: 10px;
+}
+
+.search-box {
+    flex: 1;
+
+    height: 42px;
+
+    background: white;
+
+    border: 1px solid #DDE4E0;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    position: relative;
+}
+
+.search-box > span {
+    margin-left: 13px;
+
+    color: #78847E;
+
+    font-size: 20px;
+}
+
+.search-box input {
+    flex: 1;
+
+    height: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    padding: 0 38px 0 9px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    color: #26312B;
+}
+
+.search-box input::placeholder {
+    color: #9AA49F;
+}
+
+.clear-search {
+    position: absolute;
+
+    right: 9px;
+
+    width: 27px;
+    height: 27px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #78847E;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+.amperage-filter {
+    width: 160px;
+
+    height: 42px;
+
+    border: 1px solid #DDE4E0;
+
+    border-radius: 8px;
+
+    background: white;
+
+    color: #37423C;
+
+    padding: 0 10px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    outline: none;
+
+    cursor: pointer;
+}
+
+
+/* ============================================================
+   LISTA DE BATERIAS
+   ============================================================ */
+
+.batteries-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+
+/* ============================================================
+   CARD DE BATERIA
+   ============================================================ */
+
+.battery-card {
+    display: grid;
+
+    grid-template-columns:
+        46px
+        minmax(180px, 1fr)
+        auto
+        36px
+        36px;
+
+    align-items: center;
+
+    gap: 15px;
+
+    background: white;
+
+    border: 1px solid #E4E9E6;
+
+    border-radius: 10px;
+
+    padding: 14px 16px;
+
+    transition: 0.2s;
+}
+
+.battery-card:hover {
+    border-color: #C9D8CF;
+
+    box-shadow:
+        0 2px 8px rgba(25, 50, 35, 0.05);
+}
+
+
+/* ============================================================
+   ÍCONE DA BATERIA
+   ============================================================ */
+
+.battery-icon {
+    width: 44px;
+    height: 44px;
+
+    background: #E8F5ED;
+
+    border-radius: 9px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 21px;
+}
+
+
+/* ============================================================
+   INFORMAÇÕES
+   ============================================================ */
+
+.battery-info {
+    min-width: 0;
+}
+
+.battery-info h3 {
+    margin: 0;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #26312B;
+}
+
+.battery-info p {
+    margin: 5px 0 0;
+
+    color: #78847E;
+
+    font-size: 12px;
+}
+
+
+/* ============================================================
+   PREÇO
+   ============================================================ */
+
+.battery-price {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 5px;
+
+    min-width: 135px;
+}
+
+.battery-price strong {
+    font-size: 14px;
+}
+
+
+/* ============================================================
+   ESTOQUE
+   ============================================================ */
+
+.stock-status {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 4px 8px;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.stock-danger {
+    background: #FDECEC;
+
+    color: #C43B3B;
+}
+
+.stock-warning {
+    background: #FFF4DF;
+
+    color: #A66A00;
+}
+
+.stock-ok {
+    background: #E8F5ED;
+
+    color: #16803C;
+}
+
+
+/* ============================================================
+   BOTÕES DOS CARDS
+   ============================================================ */
+
+.icon-button {
+    width: 34px;
+    height: 34px;
+
+    border: none;
+
+    background: transparent;
+
+    border-radius: 7px;
+
+    color: #78847E;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-button:hover {
+    background: #F0F4F1;
+
+    color: #16803C;
+}
+
+
+/* ============================================================
+   ESTADO VAZIO
+   ============================================================ */
+
+.battery-empty {
+    background: white;
+
+    border: 1px solid #E4E9E6;
+
+    border-radius: 10px;
+
+    padding: 55px 20px;
+
+    text-align: center;
+}
+
+.battery-empty-icon {
+    width: 48px;
+    height: 48px;
+
+    margin: 0 auto 13px;
+
+    border-radius: 50%;
+
+    background: #F0F4F1;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #78847E;
+
+    font-size: 21px;
+}
+
+.battery-empty h3 {
+    margin: 0;
+
+    font-size: 15px;
+}
+
+.battery-empty p {
+    margin: 7px 0 0;
+
+    color: #78847E;
+
+    font-size: 13px;
+}
+
+
+/* ============================================================
+   MENU DE OPÇÕES
+   ============================================================ */
+
+.battery-options-menu {
+    position: fixed;
+
+    z-index: 5000;
+
+    width: 145px;
+
+    padding: 6px;
+
+    background: white;
+
+    border: 1px solid #E0E6E2;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.battery-options-menu button {
+    width: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    padding: 9px 10px;
+
+    border-radius: 6px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    color: #37423C;
+
+    text-align: left;
+
+    cursor: pointer;
+}
+
+.battery-options-menu button:hover {
+    background: #F0F4F1;
+}
+
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+
+.modal-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 4000;
+
+    background: rgba(24, 34, 29, 0.45);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.battery-modal {
+    width: min(680px, 100%);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 24px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.18);
+}
+
+
+/* ============================================================
+   CABEÇALHO DO MODAL
+   ============================================================ */
+
+.modal-header {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 22px;
+}
+
+.modal-header h2 {
+    margin: 0;
+
+    font-size: 19px;
+}
+
+.modal-header p {
+    margin: 5px 0 0;
+
+    color: #78847E;
+
+    font-size: 13px;
+}
+
+.modal-close {
+    width: 34px;
+    height: 34px;
+
+    border: none;
+
+    background: transparent;
+
+    border-radius: 7px;
+
+    color: #78847E;
+
+    font-size: 24px;
+
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    background: #F0F4F1;
+}
+
+
+/* ============================================================
+   FORMULÁRIO
+   ============================================================ */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.form-group-full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    color: #37423C;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+
+    border: 1px solid #DDE4E0;
+
+    border-radius: 7px;
+
+    background: white;
+
+    padding: 10px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    color: #26312B;
+
+    outline: none;
+}
+
+.form-group input {
+    height: 41px;
+}
+
+.form-group textarea {
+    resize: vertical;
+
+    min-height: 90px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #16803C;
+
+    box-shadow:
+        0 0 0 2px rgba(22, 128, 60, 0.08);
+}
+
+
+/* ============================================================
+   AÇÕES DO MODAL
+   ============================================================ */
+
+.modal-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 9px;
+
+    margin-top: 22px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #EEF1EF;
+}
+
+
+/* ============================================================
+   DETALHES
+   ============================================================ */
+
+.details-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+}
+
+.detail-item {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    padding: 13px;
+
+    background: #F7F9F8;
+
+    border-radius: 8px;
+}
+
+.detail-item span {
+    color: #78847E;
+
+    font-size: 11px;
+}
+
+.detail-item strong {
+    color: #37423C;
+
+    font-size: 13px;
+
+    word-break: break-word;
+}
+
+.detail-full {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   ESTOQUE
+   ========================================================= */
+
+.stock-screen {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* CABEÇALHO */
+
+.stock-page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stock-page-header h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #26312B;
+}
+
+.stock-page-header p {
+    margin: 6px 0 0;
+    color: #78847E;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   RESUMO
+   ========================================================= */
+
+.stock-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.stock-summary-card {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    background: #FFFFFF;
+    border: 1px solid #E4E9E6;
+    border-radius: 10px;
+
+    padding: 16px 18px;
+
+    min-height: 72px;
+}
+
+.stock-summary-icon {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #E8F5ED;
+    color: #16803C;
+
+    border-radius: 9px;
+
+    font-size: 18px;
+}
+
+.stock-summary-card > div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stock-summary-card span {
+    color: #78847E;
+    font-size: 12px;
+}
+
+.stock-summary-card strong {
+    color: #26312B;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   FILTROS
+   ========================================================= */
+
+.stock-filters {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    width: 100%;
+}
+
+.stock-search-box {
+    flex: 1;
+
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+
+    background: #FFFFFF;
+    border: 1px solid #DDE4E0;
+    border-radius: 8px;
+
+    padding: 0 11px;
+
+    transition: 0.2s;
+}
+
+.stock-search-box:focus-within {
+    border-color: #16803C;
+    box-shadow: 0 0 0 2px rgba(22, 128, 60, 0.08);
+}
+
+.stock-search-box > span {
+    color: #78847E;
+    font-size: 20px;
+    line-height: 1;
+
+    margin-right: 8px;
+}
+
+.stock-search-box input {
+    flex: 1;
+
+    min-width: 0;
+
+    border: none;
+    outline: none;
+    background: transparent;
+
+    color: #37423C;
+
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.stock-search-box input::placeholder {
+    color: #A0AAA5;
+}
+
+.stock-search-box button {
+    width: 26px;
+    height: 26px;
+
+    border: none;
+    background: transparent;
+
+    color: #78847E;
+
+    font-size: 20px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 6px;
+}
+
+.stock-search-box button:hover {
+    background: #F0F4F1;
+    color: #26312B;
+}
+
+
+/* SELECTS */
+
+.stock-select {
+    width: 170px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border: 1px solid #DDE4E0;
+    border-radius: 8px;
+
+    background: #FFFFFF;
+    color: #37423C;
+
+    padding: 0 12px;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    outline: none;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.stock-select:hover {
+    border-color: #C9D8CF;
+}
+
+.stock-select:focus {
+    border-color: #16803C;
+    box-shadow: 0 0 0 2px rgba(22, 128, 60, 0.08);
+}
+
+
+/* =========================================================
+   LISTA
+   ========================================================= */
+
+.stock-list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+
+/* =========================================================
+   CARD DE ESTOQUE
+   ========================================================= */
+
+.stock-card {
+    display: grid;
+
+    grid-template-columns:
+        46px
+        minmax(180px, 1fr)
+        135px
+        170px
+        100px;
+
+    align-items: center;
+
+    gap: 15px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E4E9E6;
+    border-radius: 10px;
+
+    padding: 14px 16px;
+
+    transition: 0.2s;
+}
+
+.stock-card:hover {
+    border-color: #C9D8CF;
+    box-shadow: 0 2px 8px rgba(25, 50, 35, 0.05);
+}
+
+
+/* ÍCONE */
+
+.stock-card-icon {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #E8F5ED;
+    border-radius: 9px;
+
+    font-size: 21px;
+}
+
+
+/* INFORMAÇÕES */
+
+.stock-card-info {
+    min-width: 0;
+}
+
+.stock-card-info h3 {
+    margin: 0;
+
+    color: #26312B;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.stock-card-info p {
+    margin: 5px 0 0;
+
+    color: #78847E;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* PREÇO */
+
+.stock-card-price {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 4px;
+
+    min-width: 0;
+}
+
+.stock-card-price strong {
+    color: #26312B;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.stock-card-price small {
+    color: #78847E;
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   QUANTIDADE
+   ========================================================= */
+
+.stock-quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+}
+
+.stock-quantity button {
+    width: 30px;
+    height: 30px;
+
+    border: 1px solid #DDE4E0;
+    border-radius: 7px;
+
+    background: #FFFFFF;
+    color: #37423C;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: inherit;
+    font-size: 17px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.stock-quantity button:hover {
+    background: #E8F5ED;
+    border-color: #C9D8CF;
+    color: #16803C;
+}
+
+.stock-quantity button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.stock-quantity-value {
+    min-width: 28px;
+
+    text-align: center;
+
+    color: #26312B;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.stock-card-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stock-card-status .stock-status {
+    min-width: 78px;
+
+    justify-content: center;
+}
+
+
+/* =========================================================
+   AÇÕES
+   ========================================================= */
+
+.stock-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 3px;
+}
+
+.stock-card-actions .icon-button {
+    width: 34px;
+    height: 34px;
+}
+
+/* =========================================================
+   CARDS DO ESTOQUE
+   ========================================================= */
+
+.stock-battery-card {
+    display: grid;
+    grid-template-columns: 46px minmax(180px, 1fr) 130px 120px 100px 36px 36px;
+    align-items: center;
+    gap: 14px;
+
+    background: #FFFFFF;
+    border: 1px solid #E4E9E6;
+    border-radius: 10px;
+
+    padding: 14px 16px;
+
+    transition: 0.2s;
+}
+
+.stock-battery-card:hover {
+    border-color: #C9D8CF;
+    box-shadow: 0 2px 8px rgba(25, 50, 35, 0.05);
+}
+
+
+/* ÍCONE */
+
+.stock-battery-icon {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #E8F5ED;
+    border-radius: 9px;
+
+    font-size: 21px;
+}
+
+
+/* INFORMAÇÕES */
+
+.stock-battery-info {
+    min-width: 0;
+}
+
+.stock-battery-info h3 {
+    margin: 0;
+
+    color: #26312B;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.stock-battery-info p {
+    margin: 5px 0 0;
+
+    color: #78847E;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* PREÇO */
+
+.stock-battery-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    gap: 4px;
+}
+
+.stock-battery-price span {
+    color: #78847E;
+    font-size: 11px;
+}
+
+.stock-battery-price strong {
+    color: #26312B;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* CONTROLE DE QUANTIDADE */
+
+.stock-quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+}
+
+.stock-quantity-button {
+    width: 30px;
+    height: 30px;
+
+    border: 1px solid #DDE4E0;
+    border-radius: 7px;
+
+    background: #FFFFFF;
+    color: #37423C;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: inherit;
+    font-size: 17px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.stock-quantity-button:hover {
+    background: #E8F5ED;
+    border-color: #C9D8CF;
+    color: #16803C;
+}
+
+.stock-quantity-button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+
+/* NÚMERO DO ESTOQUE */
+
+.stock-battery-card .stock-quantity {
+    min-width: 28px;
+
+    text-align: center;
+
+    color: #26312B;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* STATUS */
+
+.stock-status-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 78px;
+    height: 28px;
+
+    padding: 0 10px;
+
+    border-radius: 999px;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* CORES DO STATUS */
+
+.status-danger {
+    background: #FDECEC;
+    color: #C0392B;
+}
+
+.status-warning {
+    background: #FFF5DD;
+    color: #A66A00;
+}
+
+.status-ok {
+    background: #E8F5ED;
+    color: #16803C;
+}
+
+
+/* ÍCONE DA BATERIA CONFORME STATUS */
+
+.stock-battery-icon.stock-card-danger {
+    background: #FDECEC;
+}
+
+.stock-battery-icon.stock-card-warning {
+    background: #FFF5DD;
+}
+
+.stock-battery-icon.stock-card-ok {
+    background: #E8F5ED;
+}
+
+
+/* BOTÕES EDITAR / EXCLUIR */
+
+.stock-icon-button {
+    width: 34px;
+    height: 34px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: transparent;
+    color: #78847E;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: inherit;
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.stock-icon-button:hover {
+    background: #F0F4F1;
+    color: #16803C;
+}
+
+.stock-icon-button.delete:hover {
+    background: #FDECEC;
+    color: #C0392B;
+}
+
+
+/* RESPONSIVO */
+
+@media (max-width: 1100px) {
+
+    .stock-battery-card {
+        grid-template-columns:
+            44px
+            minmax(160px, 1fr)
+            115px
+            110px
+            90px
+            34px
+            34px;
+    }
+}
+
+
+@media (max-width: 800px) {
+
+    .stock-battery-card {
+        grid-template-columns:
+            44px
+            1fr
+            auto;
+        gap: 10px;
+    }
+
+    .stock-battery-price {
+        grid-column: 2;
+        align-items: flex-start;
+    }
+
+    .stock-quantity-control {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .stock-status-label {
+        grid-column: 2;
+        justify-content: flex-start;
+        width: fit-content;
+    }
+
+    .stock-icon-button {
+        grid-column: 3;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .stock-battery-card {
+        grid-template-columns: 42px 1fr;
+        padding: 12px;
+    }
+
+    .stock-battery-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .stock-battery-price,
+    .stock-quantity-control,
+    .stock-status-label,
+    .stock-icon-button {
+        grid-column: 2;
+    }
+
+    .stock-quantity-control {
+        justify-content: flex-start;
+    }
+
+    .stock-status-label {
+        justify-content: flex-start;
+    }
+
+    .stock-icon-button {
+        justify-self: flex-start;
+    }
+}
+
+
+/* =========================================================
+   ESTADO VAZIO
+   ========================================================= */
+
+.stock-empty {
+    background: #FFFFFF;
+
+    border: 1px solid #E4E9E6;
+    border-radius: 10px;
+
+    padding: 55px 20px;
+
+    text-align: center;
+}
+
+.stock-empty-icon {
+    width: 48px;
+    height: 48px;
+
+    margin: 0 auto 13px;
+
+    border-radius: 50%;
+
+    background: #F0F4F1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #78847E;
+
+    font-size: 21px;
+}
+
+.stock-empty h3 {
+    margin: 0;
+
+    color: #26312B;
+
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.stock-empty p {
+    margin: 7px 0 0;
+
+    color: #78847E;
+
+    font-size: 13px;
+}
+
+.stock-empty .secondary-button {
+    margin-top: 16px;
+}
+
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .stock-summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stock-card {
+        grid-template-columns:
+            46px
+            minmax(160px, 1fr)
+            125px
+            155px
+            90px;
+    }
+}
+
+
+@media (max-width: 800px) {
+
+    .stock-page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .stock-filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .stock-search-box,
+    .stock-select {
+        width: 100%;
+    }
+
+    .stock-card {
+        grid-template-columns:
+            44px
+            1fr
+            auto;
+
+        gap: 12px;
+    }
+
+    .stock-card-price {
+        grid-column: 2;
+        align-items: flex-start;
+    }
+
+    .stock-quantity {
+        grid-column: 3;
+        grid-row: 1;
+        justify-content: flex-end;
+    }
+
+    .stock-card-status {
+        grid-column: 2;
+        justify-content: flex-start;
+    }
+
+    .stock-card-actions {
+        grid-column: 3;
+        grid-row: 2;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .stock-summary-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .stock-summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stock-card {
+        grid-template-columns: 42px 1fr;
+
+        gap: 9px;
+
+        padding: 12px;
+    }
+
+    .stock-card-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .stock-card-price {
+        grid-column: 2;
+    }
+
+    .stock-quantity {
+        grid-column: 2;
+
+        justify-content: flex-start;
+    }
+
+    .stock-card-status {
+        grid-column: 2;
+
+        justify-content: flex-start;
+    }
+
+    .stock-card-actions {
+        grid-column: 2;
+
+        justify-content: flex-start;
+    }
+}
+
+/* ============================================================
+   VEÍCULOS
+   ============================================================ */
+
+.vehicles-screen {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.vehicles-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.vehicles-header h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.vehicles-header p {
+    margin: 6px 0 0;
+    color: #78847E;
+}
+
+.vehicles-filters {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #FFFFFF;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #E4E9E6;
+}
+
+.vehicles-search-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #F6F8F7;
+    border-radius: 9px;
+    padding: 0 12px;
+}
+
+.vehicles-search-box span {
+    color: #78847E;
+    font-size: 20px;
+}
+
+.vehicles-search-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 12px 0;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.vehicles-count {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #E8F5ED;
+    color: #166534;
+    padding: 11px 15px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.vehicles-count span {
+    color: #16803C;
+}
+
+.vehicles-content {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+    gap: 20px;
+    min-height: 500px;
+}
+
+.vehicles-list-container,
+.vehicle-details-container {
+    background: #FFFFFF;
+    border-radius: 14px;
+    border: 1px solid #E4E9E6;
+}
+
+.vehicles-list-container {
+    padding: 20px;
+}
+
+.vehicles-list-header {
+    margin-bottom: 15px;
+}
+
+.vehicles-list-header h3 {
+    margin: 0;
+    font-size: 17px;
+}
+
+.vehicles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.vehicle-list-item {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr) auto 36px 36px;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 12px;
+    background: #F8FAF9;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.vehicle-list-item:hover {
+    border-color: #DCE7E0;
+}
+
+.vehicle-list-item.vehicle-selected {
+    background: #E8F5ED;
+    border-color: #16803C;
+}
+
+.vehicle-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    border-radius: 11px;
+    font-size: 21px;
+}
+
+.vehicle-info {
+    min-width: 0;
+}
+
+.vehicle-info h3 {
+    margin: 0;
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.vehicle-info p {
+    margin: 4px 0 0;
+    color: #78847E;
+    font-size: 13px;
+}
+
+.vehicle-amperage {
+    padding: 7px 10px;
+    background: #FFFFFF;
+    color: #16803C;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.vehicle-action-button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 7px;
+    background: transparent;
+    color: #78847E;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.vehicle-action-button:hover {
+    background: #EEF3EF;
+    color: #16803C;
+}
+
+.vehicle-action-button.vehicle-delete:hover {
+    background: #FDECEC;
+    color: #C0392B;
+}
+
+.vehicle-details-container {
+    padding: 25px;
+}
+
+.vehicle-details-empty {
+    height: 100%;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.vehicle-details-empty-icon {
+    width: 75px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F6F8F7;
+    border-radius: 18px;
+    font-size: 35px;
+    margin-bottom: 18px;
+}
+
+.vehicle-details-empty h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.vehicle-details-empty p {
+    max-width: 280px;
+    margin: 8px 0 0;
+    color: #78847E;
+    line-height: 1.5;
+    font-size: 13px;
+}
+
+.vehicle-details-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.vehicle-details-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #E8F5ED;
+    border-radius: 14px;
+    font-size: 27px;
+}
+
+.vehicle-details-header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.vehicle-details-header p {
+    margin: 4px 0 0;
+    color: #78847E;
+    font-size: 13px;
+}
+
+.vehicle-detail-title {
+    margin-top: 28px;
+    margin-bottom: 9px;
+    color: #78847E;
+    font-size: 13px;
+}
+
+.recommended-battery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 22px;
+    background: #E8F5ED;
+    border-radius: 14px;
+}
+
+.recommended-battery-icon {
+    font-size: 35px;
+    margin-bottom: 8px;
+}
+
+.recommended-battery strong {
+    color: #166534;
+    font-size: 30px;
+}
+
+.recommended-battery span {
+    margin-top: 4px;
+    color: #166534;
+    font-size: 13px;
+}
+
+.vehicle-note {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+    padding: 13px;
+    background: #F6F8F7;
+    border-radius: 10px;
+}
+
+.vehicle-note > span {
+    font-size: 18px;
+}
+
+.vehicle-note small {
+    color: #78847E;
+    font-size: 11px;
+}
+
+.vehicle-note p {
+    margin: 4px 0 0;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.vehicle-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 30px;
+}
+
+.vehicle-empty-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+.vehicle-empty h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.vehicle-empty p {
+    margin: 8px 0 18px;
+    color: #78847E;
+}
+
+.vehicle-modal {
+    width: min(560px, calc(100vw - 40px));
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.vehicle-modal .form-grid {
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 900px) {
+
+    .vehicles-content {
+        grid-template-columns: 1fr;
+    }
+
+    .vehicle-details-container {
+        min-height: 350px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .vehicles-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .vehicles-filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .vehicles-count {
+        justify-content: center;
+    }
+
+    .vehicle-list-item {
+        grid-template-columns: 42px minmax(0, 1fr) auto;
+    }
+
+    .vehicle-action-button {
+        display: none;
+    }
+
+    .vehicle-amperage {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .vehicle-modal .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================================
+   VENDAS
+   ============================================================ */
+
+.sales-screen {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.sales-battery-results {
+    margin-top: 14px;
+    max-height: 260px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sales-battery-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 90px 120px 80px;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: #F8FAF9;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.sales-battery-item:hover {
+    border-color: #DCE7E0;
+}
+
+.sales-battery-selected {
+    background: #E8F5ED;
+    border-color: #16803C;
+}
+
+.sales-total-box {
+    margin-top: 18px;
+    padding: 18px;
+    background: #E8F5ED;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sales-total-box span {
+    color: #166534;
+    font-weight: 600;
+}
+
+.sales-total-box strong {
+    color: #16803C;
+    font-size: 22px;
+}
+
+.sales-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.secondary-button {
+    border: 1px solid #DCE4DF;
+    background: white;
+    color: #37423C;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.secondary-button:hover {
+    background: #F2F6F3;
+}
+
+
+/* ============================================================
+   HISTÓRICO DE VENDAS
+   ============================================================ */
+
+.history-screen {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.history-date-filter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.history-date-filter input[type="date"] {
+    height: 42px;
+    border: 1px solid #DDE4E0;
+    border-radius: 8px;
+    padding: 0 10px;
+    font-family: inherit;
+    font-size: 13px;
+    color: #37423C;
+    background: white;
+}
+
+.history-date-filter span {
+    color: #78847E;
+    font-size: 13px;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.history-row {
+    display: grid;
+    grid-template-columns: minmax(160px, 1fr) minmax(200px, 1fr) 110px 36px 36px 36px;
+    align-items: center;
+    gap: 15px;
+
+    background: #FFFFFF;
+    border: 1px solid #E4E9E6;
+    border-radius: 10px;
+    padding: 14px 16px;
+
+    transition: 0.2s;
+}
+
+.history-row:hover {
+    border-color: #C9D8CF;
+    box-shadow: 0 2px 8px rgba(25, 50, 35, 0.05);
+}
+
+.history-row-main {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.history-row-main strong {
+    font-size: 14px;
+}
+
+.history-row-main small {
+    color: #78847E;
+    font-size: 12px;
+}
+
+.history-row-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    color: #78847E;
+    font-size: 12px;
+}
+
+.history-row-total {
+    font-size: 15px;
+    font-weight: 700;
+    color: #16803C;
+    text-align: right;
+}
+
+@media (max-width: 800px) {
+
+    .history-row {
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+    }
+
+    .history-row-info,
+    .history-row-total {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ============================================================
+   RELATÓRIOS
+   ============================================================ */
+
+.reports-screen {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.reports-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+@media (max-width: 1000px) {
+
+    .reports-columns {
+        grid-template-columns: 1fr;
+    }
+}
+
+.report-progress-row {
+    margin-bottom: 16px;
+}
+
+.report-progress-row:last-child {
+    margin-bottom: 0;
+}
+
+.report-progress-labels {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 7px;
+    font-size: 13px;
+}
+
+.report-progress-labels strong {
+    color: #26312B;
+}
+
+.report-progress-labels span {
+    color: #16803C;
+    font-weight: 700;
+}
+
+.report-progress-bar {
+    height: 8px;
+    background: #EEF1EF;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.report-progress-fill {
+    height: 100%;
+    background: #16803C;
+    border-radius: 10px;
+}
+
+.report-ranking-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+}
+
+.report-ranking-position {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #E8F5ED;
+    color: #16803C;
+    border-radius: 9px;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.report-ranking-name {
+    flex: 1;
+    min-width: 0;
+    font-weight: 600;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.report-ranking-count {
+    color: #78847E;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.report-insight-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.report-insight-row:last-child {
+    margin-bottom: 0;
+}
+
+.report-insight-row span {
+    color: #16803C;
+    font-weight: 700;
+}
+
+.report-insight-row p {
+    margin: 0;
+    font-size: 14px;
+    color: #37423C;
+}
+
+/* ============================================================
+   RELATÓRIOS
+   ============================================================ */
+
+.reports-screen {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.reports-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+@media (max-width: 1000px) {
+
+    .reports-columns {
+        grid-template-columns: 1fr;
+    }
+}
+
+.report-progress-row {
+    margin-bottom: 16px;
+}
+
+.report-progress-row:last-child {
+    margin-bottom: 0;
+}
+
+.report-progress-labels {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 7px;
+    font-size: 13px;
+}
+
+.report-progress-labels strong {
+    color: #26312B;
+}
+
+.report-progress-labels span {
+    color: #16803C;
+    font-weight: 700;
+}
+
+.report-progress-bar {
+    height: 8px;
+    background: #EEF1EF;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.report-progress-fill {
+    height: 100%;
+    background: #16803C;
+    border-radius: 10px;
+}
+
+.report-ranking-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+}
+
+.report-ranking-position {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #E8F5ED;
+    color: #16803C;
+    border-radius: 9px;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.report-ranking-name {
+    flex: 1;
+    min-width: 0;
+    font-weight: 600;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.report-ranking-count {
+    color: #78847E;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.report-insight-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.report-insight-row:last-child {
+    margin-bottom: 0;
+}
+
+.report-insight-row span {
+    color: #16803C;
+    font-weight: 700;
+}
+
+.report-insight-row p {
+    margin: 0;
+    font-size: 14px;
+    color: #37423C;
+}
+
+/* ============================================================
+   FINANCEIRO
+   ============================================================ */
+
+.financial-screen {
+    display: flex;
+    flex-direction: column;
+}
+
+.financial-actions-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.financial-period-chips,
+.financial-section-chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.financial-section-chips {
+    margin-bottom: 8px;
+}
+
+.financial-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.chip {
+    border: 1px solid #DDE4E0;
+    background: white;
+    color: #37423C;
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.chip:hover {
+    border-color: #C9D8CF;
+}
+
+.chip-active {
+    background: #16803C;
+    border-color: #16803C;
+    color: white;
+    font-weight: 600;
+}
