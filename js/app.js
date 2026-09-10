@@ -1237,7 +1237,7 @@ function renderizarTelaBaterias(
         );
 
 
-    const bateriasFiltradas =
+        const bateriasFiltradas =
         baterias.filter(
             bateria => {
 
@@ -1273,6 +1273,28 @@ function renderizarTelaBaterias(
                 );
             }
         );
+
+
+    if (amperagemSelecionada !== "Todas") {
+
+        bateriasFiltradas.sort(
+            (a, b) => {
+
+                const precoA =
+                    a.price !== null && a.price !== undefined
+                        ? Number(a.price)
+                        : Infinity;
+
+                const precoB =
+                    b.price !== null && b.price !== undefined
+                        ? Number(b.price)
+                        : Infinity;
+
+                return precoA - precoB;
+            }
+        );
+    }
+    
 
 
     screenContent.innerHTML = `
