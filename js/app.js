@@ -5463,107 +5463,160 @@ function renderizarTelaVendas() {
 
             <div class="section-card">
 
-                <h2>2. Dados da venda</h2>
+    <h2>2. Dados da venda</h2>
 
-                <div class="form-grid" style="margin-top: 14px;">
+        <div class="form-grid" style="margin-top: 14px;">
 
-                    <div class="form-group">
-                        <label>Data da venda</label>
-                        <input
-                            id="venda-data"
-                            type="date"
-                            value="${dataHoje}"
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label>Modelo</label>
-                        <input id="venda-modelo" type="text">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Preço</label>
-                        <input id="venda-preco" type="text" inputmode="decimal">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Garantia</label>
-                        <input id="venda-garantia" type="text">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Código</label>
-                        <input id="venda-codigo" type="text">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Cliente</label>
-                        <input id="venda-cliente" type="text" placeholder="Opcional">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Veículo</label>
-                        <input id="venda-veiculo" type="text" placeholder="Opcional">
-                    </div>
-
-                </div>
-
+            <div class="form-group">
+                <label>Data da venda</label>
+                <input
+                    id="venda-data"
+                    type="date"
+                    value="${dataHoje}"
+                >
             </div>
+
+            <div class="form-group">
+                <label>Modelo</label>
+                <input id="venda-modelo" type="text">
+            </div>
+
+            <div class="form-group">
+                <label>Preço da bateria</label>
+                <input id="venda-preco" type="text" inputmode="decimal">
+            </div>
+
+            <div class="form-group">
+                <label>Garantia</label>
+                <input id="venda-garantia" type="text">
+            </div>
+
+            <div class="form-group">
+                <label>Código</label>
+                <input id="venda-codigo" type="text">
+            </div>
+
+            <div class="form-group">
+                <label>Cliente</label>
+                <input id="venda-cliente" type="text" placeholder="Opcional">
+            </div>
+
+            <div class="form-group">
+                <label>Veículo</label>
+                <input id="venda-veiculo" type="text" placeholder="Opcional">
+            </div>
+
+            <div class="form-group">
+                <label>Teve entrega?</label>
+                <select id="venda-entrega">
+                    <option value="nao">Não</option>
+                    <option value="sim">Sim</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Valor da entrega</label>
+                <input
+                    id="venda-entrega-valor"
+                    type="text"
+                    inputmode="decimal"
+                    placeholder="Opcional"
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Deu casco na troca?</label>
+                <select id="venda-casco">
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Valor sem casco</label>
+                <input
+                    id="venda-casco-valor"
+                    type="text"
+                    inputmode="decimal"
+                    placeholder="Opcional"
+                >
+            </div>
+
+        </div>
+
+    </div>
 
 
             <div class="section-card">
 
-                <h2>3. Pagamento</h2>
+    <h2>3. Pagamento</h2>
 
-                <div class="form-grid" style="margin-top: 14px;">
+    <div class="form-grid" style="margin-top: 14px;">
 
-                    <div class="form-group">
+        <div class="form-group">
 
-                        <label>Forma de pagamento</label>
+            <label>Forma de pagamento</label>
 
-                        <select id="venda-pagamento">
-                            <option value="Dinheiro">Dinheiro</option>
-                            <option value="Pix" selected>Pix</option>
-                            <option value="Débito">Cartão de débito</option>
-                            <option value="Crédito">Cartão de crédito</option>
-                        </select>
+            <select id="venda-pagamento">
+                <option value="Dinheiro">Dinheiro</option>
+                <option value="Pix" selected>Pix</option>
+                <option value="Débito">Cartão de débito</option>
+                <option value="Crédito">Cartão de crédito</option>
+            </select>
 
-                    </div>
+        </div>
 
-                    <div class="form-group">
-                        <label>Desconto (R$)</label>
-                        <input id="venda-desconto" type="text" inputmode="decimal" placeholder="Opcional">
-                    </div>
+        <div class="form-group">
+            <label>Desconto (R$)</label>
+            <input
+                id="venda-desconto"
+                type="text"
+                inputmode="decimal"
+                placeholder="Opcional"
+            >
+        </div>
 
-                </div>
+    </div>
 
-                <div
-                    id="venda-parcelamento"
-                    class="form-grid"
-                    style="margin-top: 14px; display: none;"
-                >
+    <div
+        id="venda-parcelamento"
+        class="form-grid"
+        style="margin-top: 14px; display: none;"
+    >
 
-                    <div class="form-group">
-                        <label>Parcelas</label>
-                        <input id="venda-parcelas" type="text" inputmode="numeric" placeholder="Ex.: 3">
-                    </div>
+        <div class="form-group">
+            <label>Parcelas</label>
+            <input
+                id="venda-parcelas"
+                type="text"
+                inputmode="numeric"
+                placeholder="Ex.: 3"
+            >
+        </div>
 
-                    <div class="form-group">
-                        <label>Juros (%)</label>
-                        <input id="venda-juros" type="text" inputmode="decimal" placeholder="Opcional">
-                    </div>
+        <div class="form-group">
+            <label>Juros (%)</label>
+            <input
+                id="venda-juros"
+                type="text"
+                inputmode="decimal"
+                placeholder="Opcional"
+            >
+        </div>
 
-                </div>
+    </div>
 
-                <div class="sales-total-box">
+    <div class="form-group" style="margin-top: 14px;">
+        <label>Valor final da venda *</label>
+        <input
+            id="venda-total-input"
+            type="text"
+            inputmode="decimal"
+            placeholder="Obrigatório"
+        >
+    </div>
 
-                    <span>Total da venda</span>
-
-                    <strong id="venda-total">R$ 0,00</strong>
-
-                </div>
-
-            </div>
+</div>
 
 
             <div class="sales-actions">
@@ -5584,70 +5637,107 @@ function renderizarTelaVendas() {
 
 
     renderizarResultadosVenda();
-    atualizarTotalVenda();
+atualizarTotalVenda();
 
 
-    document
-        .getElementById("venda-select-marca")
-        .addEventListener("change", evento => {
+document
+    .getElementById("venda-select-marca")
+    .addEventListener("change", evento => {
 
-            vendaFiltroMarca = evento.target.value;
+        vendaFiltroMarca = evento.target.value;
 
-            renderizarResultadosVenda();
-        });
-
-
-    document
-        .getElementById("venda-select-amperagem")
-        .addEventListener("change", evento => {
-
-            vendaFiltroAmperagem = evento.target.value;
-
-            renderizarResultadosVenda();
-        });
+        renderizarResultadosVenda();
+    });
 
 
-    document
-        .getElementById("venda-preco")
-        .addEventListener("input", atualizarTotalVenda);
+document
+    .getElementById("venda-select-amperagem")
+    .addEventListener("change", evento => {
+
+        vendaFiltroAmperagem = evento.target.value;
+
+        renderizarResultadosVenda();
+    });
 
 
-    document
-        .getElementById("venda-desconto")
-        .addEventListener("input", atualizarTotalVenda);
+document
+    .getElementById("venda-preco")
+    .addEventListener("input", atualizarTotalVenda);
 
 
-    document
-        .getElementById("venda-juros")
-        .addEventListener("input", atualizarTotalVenda);
+document
+    .getElementById("venda-desconto")
+    .addEventListener("input", atualizarTotalVenda);
 
 
-    document
-        .getElementById("venda-pagamento")
-        .addEventListener("change", evento => {
+document
+    .getElementById("venda-entrega")
+    .addEventListener("change", evento => {
 
-            vendaFormaPagamento = evento.target.value;
+        const campoValor = document.getElementById("venda-entrega-valor");
 
-            document.getElementById("venda-parcelamento").style.display =
-                vendaFormaPagamento === "Crédito" ? "grid" : "none";
+        if (evento.target.value === "nao") {
+            campoValor.value = "";
+        }
 
-            atualizarTotalVenda();
-        });
-
-
-    document
-        .getElementById("venda-cancelar")
-        .addEventListener("click", () => {
-
-            abrirTelaVendas();
-        });
+        atualizarTotalVenda();
+    });
 
 
-    document
-        .getElementById("venda-finalizar")
-        .addEventListener("click", finalizarVenda);
+document
+    .getElementById("venda-entrega-valor")
+    .addEventListener("input", atualizarTotalVenda);
+
+
+document
+    .getElementById("venda-casco")
+    .addEventListener("change", evento => {
+
+        const campoValor = document.getElementById("venda-casco-valor");
+
+        if (evento.target.value === "sim") {
+            campoValor.value = "";
+        }
+
+        atualizarTotalVenda();
+    });
+
+
+document
+    .getElementById("venda-casco-valor")
+    .addEventListener("input", atualizarTotalVenda);
+
+
+document
+    .getElementById("venda-juros")
+    .addEventListener("input", atualizarTotalVenda);
+
+
+document
+    .getElementById("venda-pagamento")
+    .addEventListener("change", evento => {
+
+        vendaFormaPagamento = evento.target.value;
+
+        document.getElementById("venda-parcelamento").style.display =
+            vendaFormaPagamento === "Crédito" ? "grid" : "none";
+
+        atualizarTotalVenda();
+    });
+
+
+document
+    .getElementById("venda-cancelar")
+    .addEventListener("click", () => {
+
+        abrirTelaVendas();
+    });
+
+
+document
+    .getElementById("venda-finalizar")
+    .addEventListener("click", finalizarVenda);
 }
-
 
 // ============================================================
 // RESULTADOS FILTRADOS POR MARCA / AMPERAGEM
@@ -5825,13 +5915,41 @@ function atualizarTotalVenda() {
                 .replace(",", ".")
         ) || 0;
 
+    const teveEntrega =
+        document.getElementById("venda-entrega")?.value === "sim";
+
+    const valorEntrega =
+        teveEntrega
+            ? Number(
+                (document.getElementById("venda-entrega-valor")?.value || "0")
+                    .replace(/\./g, "")
+                    .replace(",", ".")
+            ) || 0
+            : 0;
+
+    const deuCasco =
+        document.getElementById("venda-casco")?.value === "sim";
+
+    const valorSemCasco =
+        !deuCasco
+            ? Number(
+                (document.getElementById("venda-casco-valor")?.value || "0")
+                    .replace(/\./g, "")
+                    .replace(",", ".")
+            ) || 0
+            : 0;
+
     const juros =
         Number(
             (document.getElementById("venda-juros")?.value || "0")
                 .replace(",", ".")
         ) || 0;
 
-    let total = preco - desconto;
+    let total =
+        preco +
+        valorEntrega +
+        valorSemCasco -
+        desconto;
 
     if (vendaFormaPagamento === "Crédito" && juros > 0) {
         total += total * (juros / 100);
@@ -5841,11 +5959,12 @@ function atualizarTotalVenda() {
         total = 0;
     }
 
-    const totalElemento =
-        document.getElementById("venda-total");
+    const totalInput =
+        document.getElementById("venda-total-input");
 
-    if (totalElemento) {
-        totalElemento.textContent = formatMoney(total);
+    if (totalInput) {
+        totalInput.value =
+            total.toFixed(2).replace(".", ",");
     }
 }
 
@@ -5863,7 +5982,7 @@ async function finalizarVenda() {
         return;
     }
 
-        if (Number(vendaBateriaSelecionada.stock || 0) <= 0) {
+    if (Number(vendaBateriaSelecionada.stock || 0) <= 0) {
 
         alert("Essa bateria está sem estoque disponível para venda.");
 
@@ -5874,7 +5993,9 @@ async function finalizarVenda() {
         document.getElementById("venda-data").value;
 
     if (!dataVenda) {
+
         alert("Informe a data da venda.");
+
         return;
     }
 
@@ -5904,49 +6025,132 @@ async function finalizarVenda() {
                 .replace(",", ".")
         ) || 0;
 
+    const entrega =
+        document.getElementById("venda-entrega").value === "sim";
+
+    const valorEntrega =
+        Number(
+            (document.getElementById("venda-entrega-valor").value || "0")
+                .replace(/\./g, "")
+                .replace(",", ".")
+        ) || 0;
+
+    const casco =
+        document.getElementById("venda-casco").value === "sim";
+
+    const valorSemCasco =
+        casco
+            ? 0
+            : Number(
+                (document.getElementById("venda-casco-valor").value || "0")
+                    .replace(/\./g, "")
+                    .replace(",", ".")
+            ) || 0;
+
     const juros =
         Number(
             (document.getElementById("venda-juros")?.value || "0")
                 .replace(",", ".")
         ) || 0;
 
+    const totalTexto =
+        document.getElementById("venda-total-input").value.trim();
+
+    if (!totalTexto) {
+
+        alert("Informe o valor final da venda.");
+
+        return;
+    }
+
+    const total =
+        Number(
+            totalTexto
+                .replace(/\./g, "")
+                .replace(",", ".")
+        ) || 0;
+
+    if (total <= 0) {
+
+        alert("Informe um valor final válido.");
+
+        return;
+    }
+
     const parcelas =
         parcelasTexto ? Number(parcelasTexto) : null;
-
-    let total = preco - desconto;
-
-    if (pagamento === "Crédito" && juros > 0) {
-        total += total * (juros / 100);
-    }
-
-    if (total < 0) {
-        total = 0;
-    }
 
     const venda = {
 
         date: (() => {
-            const [ano, mes, dia] = dataVenda.split("-").map(Number);
-            return new Date(ano, mes - 1, dia, 12, 0, 0).toISOString();
+
+            const [ano, mes, dia] =
+                dataVenda.split("-").map(Number);
+
+            return new Date(
+                ano,
+                mes - 1,
+                dia,
+                12,
+                0,
+                0
+            ).toISOString();
+
         })(),
 
-        batteryId: vendaBateriaSelecionada.id,
+        batteryId:
+            vendaBateriaSelecionada.id,
 
-        brand: vendaBateriaSelecionada.brand || null,
-        model: vendaBateriaSelecionada.model || null,
-        amperage: vendaBateriaSelecionada.amperage || null,
-        price: preco,
-        warranty: vendaBateriaSelecionada.warranty || null,
-        code: vendaBateriaSelecionada.code || null,
+        brand:
+            vendaBateriaSelecionada.brand || null,
 
-        customer: cliente || null,
-        vehicle: veiculo || null,
+        model:
+            vendaBateriaSelecionada.model || null,
 
-        paymentMethod: pagamento,
-        discount: desconto,
-        installments: parcelas,
-        interest: juros,
-        total: total
+        amperage:
+            vendaBateriaSelecionada.amperage || null,
+
+        price:
+            preco,
+
+        warranty:
+            vendaBateriaSelecionada.warranty || null,
+
+        code:
+            vendaBateriaSelecionada.code || null,
+
+        customer:
+            cliente || null,
+
+        vehicle:
+            veiculo || null,
+
+        delivery:
+            entrega,
+
+        deliveryPrice:
+            entrega ? valorEntrega : 0,
+
+        tradeIn:
+            casco,
+
+        noTradeInPrice:
+            valorSemCasco,
+
+        paymentMethod:
+            pagamento,
+
+        discount:
+            desconto,
+
+        installments:
+            parcelas,
+
+        interest:
+            juros,
+
+        total:
+            total
     };
 
 
@@ -5954,20 +6158,32 @@ async function finalizarVenda() {
 
         const id = Date.now().toString();
 
-        await set(ref(database, `vendas/${id}`), venda);
+        await set(
+            ref(database, `vendas/${id}`),
+            venda
+        );
 
-        vendas.unshift({ id, ...venda });
+        vendas.unshift({
+            id,
+            ...venda
+        });
 
 
         const novoEstoque =
             Number(vendaBateriaSelecionada.stock || 0) - 1;
 
         await update(
-            ref(database, `baterias/${vendaBateriaSelecionada.id}`),
-            { stock: novoEstoque }
+            ref(
+                database,
+                `baterias/${vendaBateriaSelecionada.id}`
+            ),
+            {
+                stock: novoEstoque
+            }
         );
 
-        vendaBateriaSelecionada.stock = novoEstoque;
+        vendaBateriaSelecionada.stock =
+            novoEstoque;
 
 
         alert("Venda registrada com sucesso!");
@@ -5977,9 +6193,14 @@ async function finalizarVenda() {
 
     } catch (error) {
 
-        console.error("Erro ao registrar venda:", error);
+        console.error(
+            "Erro ao registrar venda:",
+            error
+        );
 
-        alert("Não foi possível registrar a venda.");
+        alert(
+            "Não foi possível registrar a venda."
+        );
     }
 }
 
