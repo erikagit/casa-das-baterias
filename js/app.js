@@ -5458,6 +5458,13 @@ function renderizarTelaVendas() {
                     class="sales-battery-results"
                 ></div>
 
+                <div
+                    id="venda-bateria-selecionada"
+                    class="sales-selected-battery"
+                >
+                    Nenhuma bateria selecionada.
+                </div>
+
             </div>
 
 
@@ -5890,6 +5897,36 @@ function selecionarBateriaVenda(bateria) {
 
     document.getElementById("venda-codigo").value =
         bateria.code || "";
+
+
+    // ========================================================
+    // MOSTRAR BATERIA SELECIONADA
+    // ========================================================
+
+    const campoSelecionada =
+        document.getElementById("venda-bateria-selecionada");
+
+    if (campoSelecionada) {
+
+        const nome =
+            [bateria.brand, bateria.model]
+                .filter(Boolean)
+                .join(" ")
+            || bateria.code
+            || "Bateria";
+
+        const amperagem =
+            bateria.amperage
+                ? formatAmperage(bateria.amperage)
+                : "";
+
+        campoSelecionada.innerHTML = `
+            <strong>Bateria selecionada:</strong>
+            ${escapeHtml(nome)}
+            ${amperagem ? ` — ${escapeHtml(amperagem)}` : ""}
+        `;
+    }
+
 
     atualizarTotalVenda();
 }
@@ -6763,7 +6800,6 @@ function mostrarDetalhesVenda(venda) {
     screenContent.insertAdjacentHTML(
         "beforeend",
         `
-
         <div class="modal-overlay" id="detalhes-venda-modal">
 
             <div class="battery-modal">
@@ -6775,7 +6811,10 @@ function mostrarDetalhesVenda(venda) {
                         <p>Detalhes da venda</p>
                     </div>
 
-                    <button class="modal-close" id="fechar-detalhes-venda">
+                    <button
+                        class="modal-close"
+                        id="fechar-detalhes-venda"
+                    >
                         ×
                     </button>
 
@@ -6785,51 +6824,120 @@ function mostrarDetalhesVenda(venda) {
 
                     <div class="detail-item">
                         <span>Data</span>
-                        <strong>${formatarDataVenda(venda.date)}</strong>
+                        <strong>
+                            ${formatarDataVenda(venda.date)}
+                        </strong>
                     </div>
 
                     <div class="detail-item">
                         <span>Marca</span>
-                        <strong>${escapeHtml(venda.brand) || "Não informado"}</strong>
+                        <strong>
+                            ${escapeHtml(venda.brand) || "Não informado"}
+                        </strong>
                     </div>
 
                     <div class="detail-item">
                         <span>Modelo</span>
-                        <strong>${escapeHtml(venda.model) || "Não informado"}</strong>
+                        <strong>
+                            ${escapeHtml(venda.model) || "Não informado"}
+                        </strong>
                     </div>
 
                     <div class="detail-item">
                         <span>Amperagem</span>
-                        <strong>${
-                            venda.amperage
-                                ? formatAmperage(venda.amperage)
-                                : "Não informado"
-                        }</strong>
+                        <strong>
+                            ${
+                                venda.amperage
+                                    ? formatAmperage(venda.amperage)
+                                    : "Não informado"
+                            }
+                        </strong>
                     </div>
 
                     <div class="detail-item">
                         <span>Código</span>
-                        <strong>${escapeHtml(venda.code) || "Não informado"}</strong>
+                        <strong>
+                            ${escapeHtml(venda.code) || "Não informado"}
+                        </strong>
                     </div>
 
                     <div class="detail-item">
                         <span>Garantia</span>
-                        <strong>${escapeHtml(venda.warranty) || "Não informado"}</strong>
+                        <strong>
+                            ${escapeHtml(venda.warranty) || "Não informado"}
+                        </strong>
+                    </div>
+
+                    <div class="detail-item">
+                        <span>Preço da bateria</span>
+                        <strong>
+                            ${
+                                venda.price != null
+                                    ? formatMoney(venda.price)
+                                    : "Não informado"
+                            }
+                        </strong>
                     </div>
 
                     <div class="detail-item">
                         <span>Cliente</span>
-                        <strong>${escapeHtml(venda.customer) || "Não informado"}</strong>
+                        <strong>
+                            ${escapeHtml(venda.customer) || "Não informado"}
+                        </strong>
                     </div>
 
                     <div class="detail-item">
                         <span>Veículo</span>
-                        <strong>${escapeHtml(venda.vehicle) || "Não informado"}</strong>
+                        <strong>
+                            ${escapeHtml(venda.vehicle) || "Não informado"}
+                        </strong>
                     </div>
 
                     <div class="detail-item">
-                        <span>Pagamento</span>
-                        <strong>${escapeHtml(venda.paymentMethod) || "Não informado"}</strong>
+                        <span>Teve entrega?</span>
+                        <strong>
+                            ${venda.delivery ? "Sim" : "Não"}
+                        </strong>
+                    </div>
+
+                    ${
+                        venda.delivery
+                            ? `
+                                <div class="detail-item">
+                                    <span>Valor da entrega</span>
+                                    <strong>
+                                        ${formatMoney(venda.deliveryPrice || 0)}
+                                    </strong>
+                                </div>
+                            `
+                            : ""
+                    }
+
+                    <div class="detail-item">
+                        <span>Deu casco na troca?</span>
+                        <strong>
+                            ${venda.tradeIn ? "Sim" : "Não"}
+                        </strong>
+                    </div>
+
+                    ${
+                        !venda.tradeIn
+                            ? `
+                                <div class="detail-item">
+                                    <span>Valor sem casco</span>
+                                    <strong>
+                                        ${formatMoney(venda.noTradeInPrice || 0)}
+                                    </strong>
+                                </div>
+                            `
+                            : ""
+                    }
+
+                    <div class="detail-item">
+                        <span>Forma de pagamento</span>
+                        <strong>
+                            ${escapeHtml(venda.paymentMethod) || "Não informado"}
+                        </strong>
                     </div>
 
                     ${
@@ -6837,7 +6945,9 @@ function mostrarDetalhesVenda(venda) {
                             ? `
                                 <div class="detail-item">
                                     <span>Parcelas</span>
-                                    <strong>${venda.installments}x</strong>
+                                    <strong>
+                                        ${venda.installments}x
+                                    </strong>
                                 </div>
                             `
                             : ""
@@ -6848,45 +6958,47 @@ function mostrarDetalhesVenda(venda) {
                             ? `
                                 <div class="detail-item">
                                     <span>Juros</span>
-                                    <strong>${venda.interest}%</strong>
+                                    <strong>
+                                        ${venda.interest}%
+                                    </strong>
                                 </div>
                             `
                             : ""
                     }
 
                     <div class="detail-item">
-                        <span>Preço</span>
-                        <strong>${
-                            venda.price != null
-                                ? formatMoney(venda.price)
-                                : "Não informado"
-                        }</strong>
-                    </div>
-
-                    <div class="detail-item">
                         <span>Desconto</span>
-                        <strong>${formatMoney(venda.discount || 0)}</strong>
+                        <strong>
+                            ${formatMoney(venda.discount || 0)}
+                        </strong>
                     </div>
 
                     <div class="detail-item detail-full">
-                        <span>TOTAL</span>
+
+                        <span>TOTAL DA VENDA</span>
+
                         <strong style="color: #16803C; font-size: 18px;">
                             ${formatMoney(venda.total)}
                         </strong>
+
                     </div>
 
                 </div>
 
                 <div class="modal-actions">
-                    <button class="secondary-button" id="fechar-detalhes-venda-botao">
+
+                    <button
+                        class="secondary-button"
+                        id="fechar-detalhes-venda-botao"
+                    >
                         Fechar
                     </button>
+
                 </div>
 
             </div>
 
         </div>
-
         `
     );
 
@@ -6911,10 +7023,14 @@ function mostrarDetalhesVenda(venda) {
 
 function mostrarFormularioEditarVenda(venda) {
 
+    const dataVenda =
+        venda.date
+            ? formatarDataInput(new Date(venda.date))
+            : "";
+
     screenContent.insertAdjacentHTML(
         "beforeend",
         `
-
         <div class="modal-overlay" id="editar-venda-modal">
 
             <div class="battery-modal">
@@ -6926,7 +7042,10 @@ function mostrarFormularioEditarVenda(venda) {
                         <p>Altere os dados da venda.</p>
                     </div>
 
-                    <button class="modal-close" id="fechar-editar-venda">
+                    <button
+                        class="modal-close"
+                        id="fechar-editar-venda"
+                    >
                         ×
                     </button>
 
@@ -6937,7 +7056,63 @@ function mostrarFormularioEditarVenda(venda) {
                     <div class="form-grid">
 
                         <div class="form-group">
+                            <label>Data da venda</label>
+
+                            <input
+                                id="editar-venda-data"
+                                type="date"
+                                value="${dataVenda}"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label>Modelo</label>
+
+                            <input
+                                id="editar-venda-modelo"
+                                type="text"
+                                value="${escapeHtml(venda.model) || ""}"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label>Preço da bateria</label>
+
+                            <input
+                                id="editar-venda-preco"
+                                type="text"
+                                inputmode="decimal"
+                                value="${
+                                    venda.price != null
+                                        ? String(venda.price).replace(".", ",")
+                                        : ""
+                                }"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label>Garantia</label>
+
+                            <input
+                                id="editar-venda-garantia"
+                                type="text"
+                                value="${escapeHtml(venda.warranty) || ""}"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label>Código</label>
+
+                            <input
+                                id="editar-venda-codigo"
+                                type="text"
+                                value="${escapeHtml(venda.code) || ""}"
+                            >
+                        </div>
+
+                        <div class="form-group">
                             <label>Cliente</label>
+
                             <input
                                 id="editar-venda-cliente"
                                 type="text"
@@ -6947,6 +7122,7 @@ function mostrarFormularioEditarVenda(venda) {
 
                         <div class="form-group">
                             <label>Veículo</label>
+
                             <input
                                 id="editar-venda-veiculo"
                                 type="text"
@@ -6955,45 +7131,212 @@ function mostrarFormularioEditarVenda(venda) {
                         </div>
 
                         <div class="form-group">
+                            <label>Teve entrega?</label>
 
+                            <select id="editar-venda-entrega">
+
+                                <option
+                                    value="nao"
+                                    ${!venda.delivery ? "selected" : ""}
+                                >
+                                    Não
+                                </option>
+
+                                <option
+                                    value="sim"
+                                    ${venda.delivery ? "selected" : ""}
+                                >
+                                    Sim
+                                </option>
+
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Valor da entrega</label>
+
+                            <input
+                                id="editar-venda-entrega-valor"
+                                type="text"
+                                inputmode="decimal"
+                                value="${
+                                    venda.deliveryPrice != null
+                                        ? String(venda.deliveryPrice).replace(".", ",")
+                                        : ""
+                                }"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label>Deu casco na troca?</label>
+
+                            <select id="editar-venda-casco">
+
+                                <option
+                                    value="sim"
+                                    ${venda.tradeIn !== false ? "selected" : ""}
+                                >
+                                    Sim
+                                </option>
+
+                                <option
+                                    value="nao"
+                                    ${venda.tradeIn === false ? "selected" : ""}
+                                >
+                                    Não
+                                </option>
+
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Valor sem casco</label>
+
+                            <input
+                                id="editar-venda-casco-valor"
+                                type="text"
+                                inputmode="decimal"
+                                value="${
+                                    venda.noTradeInPrice != null
+                                        ? String(venda.noTradeInPrice).replace(".", ",")
+                                        : ""
+                                }"
+                            >
+                        </div>
+
+                        <div class="form-group">
                             <label>Forma de pagamento</label>
 
                             <select id="editar-venda-pagamento">
-                                <option value="Dinheiro" ${venda.paymentMethod === "Dinheiro" ? "selected" : ""}>
+
+                                <option
+                                    value="Dinheiro"
+                                    ${venda.paymentMethod === "Dinheiro" ? "selected" : ""}
+                                >
                                     Dinheiro
                                 </option>
-                                <option value="Pix" ${venda.paymentMethod === "Pix" ? "selected" : ""}>
+
+                                <option
+                                    value="Pix"
+                                    ${venda.paymentMethod === "Pix" ? "selected" : ""}
+                                >
                                     Pix
                                 </option>
-                                <option value="Débito" ${venda.paymentMethod === "Débito" ? "selected" : ""}>
+
+                                <option
+                                    value="Débito"
+                                    ${venda.paymentMethod === "Débito" ? "selected" : ""}
+                                >
                                     Cartão de débito
                                 </option>
-                                <option value="Crédito" ${venda.paymentMethod === "Crédito" ? "selected" : ""}>
+
+                                <option
+                                    value="Crédito"
+                                    ${venda.paymentMethod === "Crédito" ? "selected" : ""}
+                                >
                                     Cartão de crédito
                                 </option>
-                            </select>
 
+                            </select>
                         </div>
 
                         <div class="form-group">
                             <label>Desconto (R$)</label>
+
                             <input
                                 id="editar-venda-desconto"
                                 type="text"
                                 inputmode="decimal"
-                                value="${String(venda.discount || 0).replace(".", ",")}"
+                                value="${
+                                    String(venda.discount || 0)
+                                        .replace(".", ",")
+                                }"
                             >
+                        </div>
+
+                        <div
+                            class="form-group"
+                            id="editar-venda-parcelamento"
+                            style="${
+                                venda.paymentMethod === "Crédito"
+                                    ? ""
+                                    : "display: none;"
+                            }"
+                        >
+
+                            <label>Parcelas</label>
+
+                            <input
+                                id="editar-venda-parcelas"
+                                type="text"
+                                inputmode="numeric"
+                                value="${
+                                    venda.installments != null
+                                        ? venda.installments
+                                        : ""
+                                }"
+                            >
+
+                        </div>
+
+                        <div
+                            class="form-group"
+                            id="editar-venda-juros-container"
+                            style="${
+                                venda.paymentMethod === "Crédito"
+                                    ? ""
+                                    : "display: none;"
+                            }"
+                        >
+
+                            <label>Juros (%)</label>
+
+                            <input
+                                id="editar-venda-juros"
+                                type="text"
+                                inputmode="decimal"
+                                value="${
+                                    String(venda.interest || 0)
+                                        .replace(".", ",")
+                                }"
+                            >
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>Valor final da venda *</label>
+
+                            <input
+                                id="editar-venda-total"
+                                type="text"
+                                inputmode="decimal"
+                                value="${
+                                    venda.total != null
+                                        ? String(venda.total).replace(".", ",")
+                                        : ""
+                                }"
+                                required
+                            >
+
                         </div>
 
                     </div>
 
                     <div class="modal-actions">
 
-                        <button type="button" class="secondary-button" id="cancelar-editar-venda">
+                        <button
+                            type="button"
+                            class="secondary-button"
+                            id="cancelar-editar-venda"
+                        >
                             Cancelar
                         </button>
 
-                        <button type="submit" class="primary-button">
+                        <button
+                            type="submit"
+                            class="primary-button"
+                        >
                             Salvar alterações
                         </button>
 
@@ -7004,7 +7347,6 @@ function mostrarFormularioEditarVenda(venda) {
             </div>
 
         </div>
-
         `
     );
 
@@ -7021,48 +7363,311 @@ function mostrarFormularioEditarVenda(venda) {
         .getElementById("cancelar-editar-venda")
         .addEventListener("click", fechar);
 
+
+    // ========================================================
+    // MOSTRAR / OCULTAR CAMPOS DE CRÉDITO
+    // ========================================================
+
+    document
+        .getElementById("editar-venda-pagamento")
+        .addEventListener("change", evento => {
+
+            const credito =
+                evento.target.value === "Crédito";
+
+            document
+                .getElementById("editar-venda-parcelamento")
+                .style.display = credito ? "" : "none";
+
+            document
+                .getElementById("editar-venda-juros-container")
+                .style.display = credito ? "" : "none";
+
+        });
+
+
+    // ========================================================
+    // MOSTRAR / OCULTAR VALOR DA ENTREGA
+    // ========================================================
+
+    document
+        .getElementById("editar-venda-entrega")
+        .addEventListener("change", evento => {
+
+            const campo =
+                document.getElementById(
+                    "editar-venda-entrega-valor"
+                );
+
+            if (evento.target.value === "nao") {
+                campo.value = "";
+            }
+
+        });
+
+
+    // ========================================================
+    // MOSTRAR / OCULTAR VALOR SEM CASCO
+    // ========================================================
+
+    document
+        .getElementById("editar-venda-casco")
+        .addEventListener("change", evento => {
+
+            const campo =
+                document.getElementById(
+                    "editar-venda-casco-valor"
+                );
+
+            if (evento.target.value === "sim") {
+                campo.value = "";
+            }
+
+        });
+
+
+    // ========================================================
+    // SALVAR ALTERAÇÕES
+    // ========================================================
+
     document
         .getElementById("form-editar-venda")
         .addEventListener("submit", async evento => {
 
             evento.preventDefault();
 
-            const cliente =
-                document.getElementById("editar-venda-cliente").value.trim();
 
-            const veiculo =
-                document.getElementById("editar-venda-veiculo").value.trim();
+            const data =
+                document
+                    .getElementById("editar-venda-data")
+                    .value;
 
-            const pagamento =
-                document.getElementById("editar-venda-pagamento").value;
+            if (!data) {
 
-            const desconto =
+                alert("Informe a data da venda.");
+
+                return;
+            }
+
+
+            const modelo =
+                document
+                    .getElementById("editar-venda-modelo")
+                    .value
+                    .trim();
+
+            const preco =
                 Number(
-                    document.getElementById("editar-venda-desconto").value
+                    document
+                        .getElementById("editar-venda-preco")
+                        .value
                         .replace(/\./g, "")
                         .replace(",", ".")
                 ) || 0;
 
-            const preco = Number(venda.price || 0);
+            const garantia =
+                document
+                    .getElementById("editar-venda-garantia")
+                    .value
+                    .trim();
 
-            const total = Math.max(preco - desconto, 0);
+            const codigo =
+                document
+                    .getElementById("editar-venda-codigo")
+                    .value
+                    .trim();
+
+            const cliente =
+                document
+                    .getElementById("editar-venda-cliente")
+                    .value
+                    .trim();
+
+            const veiculo =
+                document
+                    .getElementById("editar-venda-veiculo")
+                    .value
+                    .trim();
+
+            const entrega =
+                document
+                    .getElementById("editar-venda-entrega")
+                    .value === "sim";
+
+            const valorEntrega =
+                entrega
+                    ? Number(
+                        document
+                            .getElementById("editar-venda-entrega-valor")
+                            .value
+                            .replace(/\./g, "")
+                            .replace(",", ".")
+                    ) || 0
+                    : 0;
+
+            const casco =
+                document
+                    .getElementById("editar-venda-casco")
+                    .value === "sim";
+
+            const valorSemCasco =
+                casco
+                    ? 0
+                    : Number(
+                        document
+                            .getElementById("editar-venda-casco-valor")
+                            .value
+                            .replace(/\./g, "")
+                            .replace(",", ".")
+                    ) || 0;
+
+            const pagamento =
+                document
+                    .getElementById("editar-venda-pagamento")
+                    .value;
+
+            const desconto =
+                Number(
+                    document
+                        .getElementById("editar-venda-desconto")
+                        .value
+                        .replace(/\./g, "")
+                        .replace(",", ".")
+                ) || 0;
+
+            const parcelasTexto =
+                document
+                    .getElementById("editar-venda-parcelas")
+                    .value
+                    .trim();
+
+            const parcelas =
+                pagamento === "Crédito" && parcelasTexto
+                    ? Number(parcelasTexto)
+                    : null;
+
+            const juros =
+                pagamento === "Crédito"
+                    ? Number(
+                        document
+                            .getElementById("editar-venda-juros")
+                            .value
+                            .replace(",", ".")
+                    ) || 0
+                    : 0;
+
+            const totalTexto =
+                document
+                    .getElementById("editar-venda-total")
+                    .value
+                    .trim();
+
+            if (!totalTexto) {
+
+                alert("Informe o valor final da venda.");
+
+                return;
+            }
+
+            const total =
+                Number(
+                    totalTexto
+                        .replace(/\./g, "")
+                        .replace(",", ".")
+                ) || 0;
+
+            if (total <= 0) {
+
+                alert("Informe um valor final válido.");
+
+                return;
+            }
+
 
             const dados = {
-                customer: cliente || null,
-                vehicle: veiculo || null,
-                paymentMethod: pagamento,
-                discount: desconto,
-                total: total
+
+                date: (() => {
+
+                    const [ano, mes, dia] =
+                        data.split("-").map(Number);
+
+                    return new Date(
+                        ano,
+                        mes - 1,
+                        dia,
+                        12,
+                        0,
+                        0
+                    ).toISOString();
+
+                })(),
+
+                model:
+                    modelo || null,
+
+                price:
+                    preco,
+
+                warranty:
+                    garantia || null,
+
+                code:
+                    codigo || null,
+
+                customer:
+                    cliente || null,
+
+                vehicle:
+                    veiculo || null,
+
+                delivery:
+                    entrega,
+
+                deliveryPrice:
+                    valorEntrega,
+
+                tradeIn:
+                    casco,
+
+                noTradeInPrice:
+                    valorSemCasco,
+
+                paymentMethod:
+                    pagamento,
+
+                discount:
+                    desconto,
+
+                installments:
+                    parcelas,
+
+                interest:
+                    juros,
+
+                total:
+                    total
             };
+
 
             try {
 
-                await update(ref(database, `vendas/${venda.id}`), dados);
+                await update(
+                    ref(database, `vendas/${venda.id}`),
+                    dados
+                );
 
-                const index = vendas.findIndex(v => v.id === venda.id);
+                const index =
+                    vendas.findIndex(
+                        v => v.id === venda.id
+                    );
 
                 if (index !== -1) {
-                    vendas[index] = { ...vendas[index], ...dados };
+
+                    vendas[index] = {
+                        ...vendas[index],
+                        ...dados
+                    };
+
                 }
 
                 modal.remove();
@@ -7071,14 +7676,19 @@ function mostrarFormularioEditarVenda(venda) {
 
             } catch (error) {
 
-                console.error("Erro ao atualizar venda:", error);
+                console.error(
+                    "Erro ao atualizar venda:",
+                    error
+                );
 
-                alert("Não foi possível atualizar a venda.");
+                alert(
+                    "Não foi possível atualizar a venda."
+                );
             }
+
         });
+
 }
-
-
 
 // ============================================================
 // ============================================================
