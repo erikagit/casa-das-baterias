@@ -5388,6 +5388,8 @@ function renderizarTelaVendas() {
 
     const marcas = listarMarcasDisponiveis();
     const amperagens = listarAmperagensDisponiveis();
+    const hoje = new Date();
+    const dataHoje = formatarDataInput(hoje);
 
     screenContent.innerHTML = `
 
