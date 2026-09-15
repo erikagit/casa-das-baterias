@@ -5468,6 +5468,15 @@ function renderizarTelaVendas() {
                 <div class="form-grid" style="margin-top: 14px;">
 
                     <div class="form-group">
+                        <label>Data da venda</label>
+                        <input
+                            id="venda-data"
+                            type="date"
+                            value="${dataHoje}"
+                        >
+                    </div>
+
+                    <div class="form-group">
                         <label>Modelo</label>
                         <input id="venda-modelo" type="text">
                     </div>
