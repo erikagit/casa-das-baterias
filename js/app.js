@@ -5861,6 +5861,14 @@ async function finalizarVenda() {
         return;
     }
 
+    const dataVenda =
+        document.getElementById("venda-data").value;
+
+    if (!dataVenda) {
+        alert("Informe a data da venda.");
+        return;
+    }
+
     const cliente =
         document.getElementById("venda-cliente").value.trim();
 
@@ -5908,7 +5916,10 @@ async function finalizarVenda() {
 
     const venda = {
 
-        date: new Date().toISOString(),
+        date: (() => {
+            const [ano, mes, dia] = dataVenda.split("-").map(Number);
+            return new Date(ano, mes - 1, dia, 12, 0, 0).toISOString();
+        })(),
 
         batteryId: vendaBateriaSelecionada.id,
 
